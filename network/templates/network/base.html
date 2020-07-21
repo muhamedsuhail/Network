@@ -10,9 +10,9 @@
         
         
         <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-        <link rel="icon" type="image/icon" href="{% static 'network/icon.png' %}">
+        <link rel="icon" type="image/icon" href="{% static 'network/img/icon.png' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        <link href="{% static 'network/css/styles.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{%static 'network/icofont/icofont.min.css' %}">
 
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
@@ -182,7 +182,7 @@
                 
                 <div>
                 
-                    <a href="javascript:void(0);" data-toggle="modal" data-target="#NewPostModal"><img style="width: 30px;height: 30px;" src="{% static 'network/addnew.png' %}" alt=""></a>
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#NewPostModal"><img style="width: 30px;height: 30px;" src="{% static 'network/img/addnew.png' %}" alt=""></a>
                 
                 </div>
                 
@@ -203,6 +203,8 @@
         {% endif %}
         
         <script type="text/javascript">
+            var click_event = (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) ? 'touchstart' : 'click'; 
+
             document.addEventListener('DOMContentLoaded',()=>{
                 
                 window.onbeforeunload = function(){ 	
