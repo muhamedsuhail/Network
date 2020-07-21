@@ -1,0 +1,236 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Social Network{% endblock %}</title>
+        
+        
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="icon" type="image/icon" href="{% static 'network/icon.png' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{%static 'network/icofont/icofont.min.css' %}">
+
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>        
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg">
+
+            <a class="navbar-brand" href="{% url 'index' %}" id="icon">
+                
+                <i class="icofont-ui-social-link " aria-hidden="true"></i>
+                <span>Network</span>
+
+            </a>
+
+            <div id="nav">
+                
+                <ul class="navbar-nav mr-auto">
+                
+                    {% if user.is_authenticated %}
+                        
+                        <li class="nav-item">
+                        
+                            <a class="nav-link"  href="{% url 'profile' u=user.id %}"><strong id="user">{{ user.username }}</strong></a>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="{% url 'index' tag='AllPosts' %}">All Posts</a>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="{% url 'index' tag='FPosts' %}">Following</a>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#NewPostModal">New Post</a>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                        
+                        </li>
+                    
+                    {% else %}
+                    
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        
+                        </li>
+                        
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        
+                        </li>
+                    
+                    {% endif %}
+                
+                </ul>
+            
+            </div>
+            
+        </nav>
+
+        <div class="modal fade" id="NewPostModal">
+        
+            <div class="modal-dialog modal-dialog-centered">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                            <h5 class="modal-title">New Post</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                            </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <textarea name="contents" id="content" placeholder="Enter the contents of your post here..." ></textarea>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" class="close">Close</button>
+                        <a id="newpost" class="btn btn-primary">Post</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="modal fade" id="EditPostModal">
+            
+            <div class="modal-dialog modal-dialog-centered">
+        
+                    <div class="modal-content">
+        
+                        <div class="modal-header">
+        
+                                <h5 class="modal-title">Edit Post</h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                                </button>
+        
+                        </div>
+        
+                        <div class="modal-body">
+        
+                            <textarea name="contents" id="content" placeholder="Enter the contents of your post here..."></textarea>
+        
+                        </div>
+        
+                        <div class="modal-footer">
+        
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" class="close">Close</button>
+                            <a id="editpost" class="btn btn-primary">Post</a>
+        
+                        </div>
+        
+                    </div>
+        
+            </div>
+        
+        </div>
+
+        <div class="body">
+            
+            {% block body %}
+            {% endblock %}
+        
+        </div>
+        
+        {% if user.is_authenticated %}
+        
+            <div id="bottom-nav">
+                
+                <div>
+                
+                    <a href="{% url 'index' tag='AllPosts' %}"><i class="icofont-ui-home"></i></a>
+                
+                </div>
+                
+                <div>
+                
+                    <a href="{% url 'index' tag='FPosts' %}" style="font-size: 1.2em;"><i class="icofont-users-alt-3"></i></a>
+                
+                </div>
+                
+                <div>
+                
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#NewPostModal"><img style="width: 30px;height: 30px;" src="{% static 'network/addnew.png' %}" alt=""></a>
+                
+                </div>
+                
+                <div>
+                
+                    <a href="{% url 'profile' u=user.id %}"><i class="icofont-user-alt-3"></i></a>
+                
+                </div>
+                
+                <div>
+                
+                    <a href="{% url 'logout' %}"><i class="icofont-logout"></i></a>
+                
+                </div>
+            
+            </div>
+
+        {% endif %}
+        
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded',()=>{
+                window.onbeforeunload = function(){ 	window.scrollTo(0,0); }
+                var click_event = (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) ? 'touchstart' : 'click';
+                document.querySelector('#newpost').addEventListener(click_event,()=>{
+                    var contents=document.querySelector('#NewPostModal').querySelector('textarea').value;
+                    var csrftoken = Cookies.get('csrftoken');
+                    data=new FormData();
+                    data.append('contents',contents);
+                    fetch('/Posts',{
+                        method: "POST",
+                        credentials: 'same-origin',
+                        body: data,
+                        headers: { "X-CSRFToken": csrftoken },
+                    })
+                    .then(()=> {
+                        if(window.location.pathname!="/AllPosts")
+                        {
+                            window.location.pathname="/AllPosts";
+                        }
+                        else
+                        {
+                            window.location.reload();
+
+                        }
+                    })
+                });
+
+            })
+        </script>
+    </body>
+</html>

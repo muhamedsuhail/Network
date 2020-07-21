@@ -1,0 +1,123 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+
+
+<div class="alert alert-primary" id="head" >
+    
+    {{head}}
+
+</div>  
+
+<div class="container">
+
+    {% for post in posts %}
+        
+        <div class="card my-3 border-dark mb-3" id=p{{post.id}}>
+            
+            <div class="card bg-light">
+                
+                <div class="card-header">
+                
+                    <a href="{% url 'profile' u=post.user.id %}" class="card-title p_user">{{post.user}}</a>
+                    <h6 class="card-subtitle mb2 text-muted">{{post.time}}  {{post.date}}</h6>
+                
+                </div>
+                
+                <div class="card-body">
+                
+                    <div class="card-text">
+                
+                        {{post.content|linebreaks|urlize}}
+                
+                    </div>
+                
+                </div>
+                
+                <div>
+                
+                    <div class="heart">
+                
+                        <div class="numlikes">0 Likes</div>
+                
+                    </div>
+                
+                </div>
+                
+                <div class="post">
+                    
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#EditPostModal" class="text-muted edit">
+                        
+                        <i class="icofont-ui-edit"></i>
+                    
+                    </a>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <a href="javascript:void(0);" class="text-muted delete" >
+                    
+                        <i class="icofont-trash" ></i>
+                    
+                    </a>
+
+                </div>
+            
+            </div>
+        
+        </div>
+    
+    {% endfor %}
+    
+    {% if posts %}
+        
+        <nav aria-label="Page navigation" id="pagination">
+            
+            <ul class="pagination">
+                
+                {% if posts.has_previous %}
+                    
+                    <li class="page-item"><a href="?page=1" class="page-link">First</a></li>
+                    <li class="page-item"><a href="?page={{ posts.previous_page_number }}" class="page-link">Previous</a></li>
+                    
+                {% else %}
+                    
+                    <li class="page-item disabled"><a class="page-link">First</a></li>
+                    <li class="page-item disabled"><a class="page-link">Previous</a></li>
+                
+                {% endif %}
+        
+                    <li class="page-item"><a href="?page={{posts.number}}" class="page-link">{{posts.number}}</a></li>
+        
+                {% if posts.has_next %}
+                    
+                    <li class="page-item"><a href="?page={{posts.next_page_number}}" class="page-link">Next</a></li>
+                    <li class="page-item"><a href="?page={{posts.paginator.num_pages}}" class="page-link">Last</a></li>
+                
+                {% else %}
+                    
+                    <li class="page-item disabled"><a class="page-link">Next</a></li>
+                    <li class="page-item disabled"><a class="page-link">Last</a></li>
+                
+                {% endif %}
+            
+            </ul>
+        
+        </nav>
+    
+    {% else %}
+        
+        <div style="text-align: center;margin-top:100px;">
+            
+            <h1>Oops! You are not following anyone!</h1>
+            <h4>Click the username on posts to view an user's profile</h4>
+        
+        </div>
+    
+    {% endif %}
+
+</div>
+
+
+<script src="{% static 'network/js/index.js' %}"></script>
+
+{% endblock %}

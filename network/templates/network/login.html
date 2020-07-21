@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+
+    {% if message %}
+        <div class="alert alert-danger alert-dismissable">
+                    
+            <button type="button" class="close" onclick="this.parentElement.remove()" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{message}}
+        
+        </div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <div class="form-group">
+            {{form}}
+        </div>
+        <div class="button">
+            <input class="btn btn-primary" type="submit" value="Sign in">
+        </div>
+        <br>
+        <p>Don't have an account? <a href="{% url 'register' %}">Sign up.</a></p>
+    </form>
+
+    
+
+{% endblock %}

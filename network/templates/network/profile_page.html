@@ -1,0 +1,135 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+    body{
+        background-color:#f8f9fa;
+        padding-bottom: 70px;
+    }
+    #count{
+        position: relative;
+        left:5px;
+    }
+</style>
+
+<div class="container bg-dark text-light" style="margin-top: 0px;" id="profile">
+    
+    <div class="details">
+
+        <a href="" id="profilepic"><i class="icofont-ui-user"></i></a>
+        <h3 id="p_uname">{{profile.username}}</h3>
+        
+        <br><br>
+        
+        <div class="flexcontainer">
+            
+            <div class="flex-item">
+            
+                <h4 >{{profile.posts.count}}</h4>
+                <h6>Posts</h6>
+            
+            </div>
+            
+            <div class="flex-item">
+            
+                <h4 id="count">{{profile.followers.count}}</h4>
+                <h6>Followers</h6>
+            
+            </div>
+            
+            <div class="flex-item">
+            
+                <h4 id="count">{{profile.following.count}}</h4>
+                <h6>Following</h6>
+            
+            </div>
+        
+        </div>
+    
+    </div>
+    
+</div>
+
+<div class="container text-dark" style="padding: 20px;" >
+    
+    {% for post in profile.posts.all %}
+        
+        <div class="card my-3 border-dark mb-3" id=p{{post.id}}>
+            
+            <div class="card bg-light">
+                
+                <div class="card-header">
+                
+                    <a href="{% url 'profile' u=post.user.id %}"  class="card-title p_user">{{post.user}}</a>
+                    <h6 class="card-subtitle mb2 text-muted">{{post.time}}  {{post.date}}</h6>
+                
+                </div>
+                
+                <div class="card-body">
+                
+                    <p class="card-text">
+                
+                        {{post.content|linebreaks|urlize}}
+                
+                    </p>
+                
+                </div>
+                
+                <div>
+                
+                    <div class="heart">
+                
+                        <div class="numlikes">0 Likes</div>
+                
+                    </div>
+                
+                </div>
+                
+                <div class="post">
+                    
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#EditPostModal" class="text-muted edit"  touch-action="none">
+                
+                        <i class="icofont-ui-edit"></i>
+                
+                    </a>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    <a href="javascript:void(0);" class="text-muted delete" touch-action="none"  >
+                
+                        <i class="icofont-trash" ></i>
+                
+                    </a>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+    
+    {% endfor %}
+
+</div>
+<script src="{% static 'network/js/index.js' %}"></script>
+<script type="text/javascript">
+
+    var p_user=`{{profile.username}}`;
+    var user=`{{user.username}}`;
+    const button=document.createElement('button');
+    button.className="btn btn-danger";
+    button.id="follow";
+
+    document.addEventListener('DOMContentLoaded',()=>{
+        if(p_user!=user)
+        {
+            var tag=new FormData();
+            tag.append('tag',"GetFollowers");
+            fetchFollowers(tag,button);
+        }
+
+    });
+</script>
+
+
+{% endblock %}
