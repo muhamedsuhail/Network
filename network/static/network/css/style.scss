@@ -4,6 +4,10 @@ $base-color-1:#7d87d2;
     line-height: 1.5em;
 }
 
+
+
+// Navigation-bar
+
 .navbar
 {
     position: fixed;
@@ -20,25 +24,9 @@ $base-color-1:#7d87d2;
     }
 }
 
-
 #nav
 {
     display: none;
-}
-
-#icon
-{  
-    margin: 0 auto;
-    padding-bottom: 10px;
-    font-size: 2em;
-    display: block;
-    color:$text-color;
-    span
-    {
-        font-size: 30px;
-        font-family: century,sans-serif;
-        color:$text-color;
-    }
 }
 
 #bottom-nav
@@ -66,10 +54,6 @@ $base-color-1:#7d87d2;
 
 }
 
-a{
-    text-decoration: none;
-    outline: none;
-}
 .alert
 {
     position: absolute;
@@ -78,21 +62,26 @@ a{
     text-align: center;
     border-radius: 0;
 }
-form
-{
-    width: 80%;
-    margin: 100px auto;
-    padding: 10px;
-    .form-control
+
+#icon
+{  
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 2em;
+    display: block;
+    color:$text-color;
+    span
     {
-        width: 100%;
-        margin-top: 20px;
+        font-size: 30px;
+        font-family: century,sans-serif;
+        color:$text-color;
     }
-    h2,.button
-    {
-        text-align: center;
-    }    
 }
+
+
+
+// Layout
+
 .container
 {
     display: flex;
@@ -117,7 +106,34 @@ form
     z-index: 12;
 }
 
+form
+{
+    width: 80%;
+    margin: 100px auto;
+    padding: 10px;
+    .form-control
+    {
+        width: 100%;
+        margin-top: 20px;
+    }
+    h2,.button
+    {
+        text-align: center;
+    }    
+}
+
+#pagination
+{
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+
+
+// Like
+
 @keyframes burst{
+
     from
     {
         background-position: left;
@@ -126,30 +142,9 @@ form
     {
         background-position: right;
     }
+
 }
 
-#pagination
-{
-    margin: 0 auto;
-    padding-top: 30px;
-}
-.card-header a{
-    font-size: 20px;
-    color:#212529;
-    font-weight: bold;
-    text-decoration: none;
-}
-.numlikes{
-    position: absolute;
-    bottom:22px;
-    left: 100px;
-}
-
-.post{
-    position: absolute;
-    right: 10px;
-    bottom:22px;
-}
 .heart 
 {
     cursor: pointer;
@@ -160,17 +155,32 @@ form
     background-repeat:no-repeat;
     background-size:cover;
 }
+
 .is-animating
 {
     animation: burst .8s steps(28) 1;
 }
+
 .bg
 {
     background-position: right;
 }
 
-.post
-{
+
+
+// Post 
+
+.card-header a{
+    font-size: 20px;
+    color:#212529;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post{
+    position: absolute;
+    right: 10px;
+    bottom:22px;
     a
     {
         font-size: 1.2em;
@@ -207,6 +217,7 @@ form
         line-height: 0px;
     }
 }
+
 .card
 {
     animation-name:hide ;
@@ -220,6 +231,11 @@ textarea
     height: 50vh;
     width: 100%;
 }
+
+
+
+// Profile page
+
 #profile
 {
     .details{
@@ -242,6 +258,7 @@ textarea
         justify-content: center;
     }
 }
+
 #profilepic
 {
     font-size: 100px;
@@ -255,6 +272,15 @@ textarea
     width: 330px;
     text-align: center;
 }
+
+.numlikes{
+    position: absolute;
+    bottom:22px;
+    left: 100px;
+}
+
+
+// Desktop view
 
 @media (min-width:1066px)
 {
@@ -270,19 +296,23 @@ textarea
         position: absolute;
         right: 0;
     }
+
     #icon
     {
         margin: 0;
     }
+
     #bottom-nav
     {
         display: none;
     }
+
     form
     {
         margin: 200px auto;
         width: 20%;
     }
+
     nav
     {
         a:hover

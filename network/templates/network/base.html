@@ -204,30 +204,15 @@
         
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded',()=>{
-                window.onbeforeunload = function(){ 	window.scrollTo(0,0); }
-                var click_event = (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) ? 'touchstart' : 'click';
+                
+                window.onbeforeunload = function(){ 	
+                    window.scrollTo(0,0); 
+                }
                 document.querySelector('#newpost').addEventListener(click_event,()=>{
                     var contents=document.querySelector('#NewPostModal').querySelector('textarea').value;
-                    var csrftoken = Cookies.get('csrftoken');
                     data=new FormData();
                     data.append('contents',contents);
-                    fetch('/Posts',{
-                        method: "POST",
-                        credentials: 'same-origin',
-                        body: data,
-                        headers: { "X-CSRFToken": csrftoken },
-                    })
-                    .then(()=> {
-                        if(window.location.pathname!="/AllPosts")
-                        {
-                            window.location.pathname="/AllPosts";
-                        }
-                        else
-                        {
-                            window.location.reload();
-
-                        }
-                    })
+                    newPost(data);
                 });
 
             })

@@ -1,4 +1,4 @@
-{% extends "network/layout.html" %}
+{% extends "network/base.html" %}
 {% load static %}
 {% block body %}
 
@@ -36,11 +36,9 @@
                 
                 <div>
                 
-                    <div class="heart">
-                
-                        <div class="numlikes">0 Likes</div>
-                
+                    <div class="heart">              
                     </div>
+                    <div class="numlikes">0 Likes</div>
                 
                 </div>
                 
@@ -118,6 +116,6 @@
 </div>
 
 
-<script src="{% static 'network/js/index.js' %}"></script>
+<script src="{% static 'network/js/base.js' %}"></script>
 
 {% endblock %}

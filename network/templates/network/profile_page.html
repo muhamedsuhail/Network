@@ -1,4 +1,4 @@
-{% extends "network/layout.html" %}
+{% extends "network/base.html" %}
 {% load static %}
 {% block body %}
 
@@ -26,14 +26,14 @@
             
             <div class="flex-item">
             
-                <h4 >{{profile.posts.count}}</h4>
+                <h4>{{profile.posts.count}}</h4>
                 <h6>Posts</h6>
             
             </div>
             
             <div class="flex-item">
             
-                <h4 id="count">{{profile.followers.count}}</h4>
+                <h4 id="count" class="followers">{{profile.followers.count}}</h4>
                 <h6>Followers</h6>
             
             </div>
@@ -111,7 +111,7 @@
     {% endfor %}
 
 </div>
-<script src="{% static 'network/js/index.js' %}"></script>
+<script src="{% static 'network/js/base.js' %}"></script>
 <script type="text/javascript">
 
     var p_user=`{{profile.username}}`;
