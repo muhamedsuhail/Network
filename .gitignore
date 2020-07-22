@@ -1,6 +1,7 @@
 #local
 .vscode/
 env/
+*.gz
 
 #sass
 .sass-cache/
