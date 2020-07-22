@@ -1,0 +1,207 @@
+* {
+  line-height: 1.5em; }
+
+.navbar {
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 2px 5px -2px black;
+  background-color: #7d87d2; }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    outline: none; }
+
+#nav {
+  display: none; }
+
+#bottom-nav {
+  box-shadow: 0 2px 3px 2px black;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #7d87d2;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row; }
+  #bottom-nav div {
+    font-size: 2em; }
+    #bottom-nav div a {
+      color: black; }
+
+.alert {
+  position: absolute;
+  top: 60px;
+  width: 100vw;
+  text-align: center;
+  border-radius: 0; }
+
+#icon {
+  margin: 0 auto;
+  padding-bottom: 10px;
+  font-size: 2em;
+  display: block;
+  color: white; }
+  #icon span {
+    font-size: 30px;
+    font-family: century,sans-serif;
+    color: white; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 60px; }
+
+.post-container {
+  width: 100%;
+  margin-top: 10px; }
+
+#head {
+  position: fixed;
+  width: 100vw;
+  top: 60px;
+  z-index: 12; }
+
+form {
+  width: 80%;
+  margin: 100px auto;
+  padding: 10px; }
+  form .form-control {
+    width: 100%;
+    margin-top: 20px; }
+  form h2, form .button {
+    text-align: center; }
+
+#pagination {
+  margin: 0 auto;
+  padding-top: 30px; }
+
+@keyframes burst {
+  from {
+    background-position: left; }
+  to {
+    background-position: right; } }
+.heart {
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  background-image: url("https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.is-animating {
+  animation: burst 0.8s steps(28) 1; }
+
+.bg {
+  background-position: right; }
+
+.card-header a {
+  font-size: 20px;
+  color: #212529;
+  font-weight: bold;
+  text-decoration: none; }
+
+.post {
+  position: absolute;
+  right: 10px;
+  bottom: 22px; }
+  .post a {
+    font-size: 1.2em;
+    color: black;
+    text-decoration: none; }
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%; }
+  50% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%; }
+  70% {
+    opacity: 0.6;
+    height: 70%;
+    line-height: 70%; }
+  80% {
+    opacity: 0.2;
+    height: 50%;
+    line-height: 50%; }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px; } }
+.card {
+  animation-name: hide;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused; }
+
+textarea {
+  padding: 10px;
+  height: 50vh;
+  width: 100%; }
+
+#profile .details {
+  text-align: center; }
+  #profile .details div {
+    margin: 0 auto; }
+
+.flexcontainer {
+  display: flex;
+  flex-direction: row; }
+  .flexcontainer .flex-item {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+
+#profilepic {
+  font-size: 100px;
+  color: #7d87d2; }
+
+#follow {
+  position: relative;
+  top: 30px;
+  left: 8px;
+  width: 330px;
+  text-align: center; }
+
+.numlikes {
+  position: absolute;
+  bottom: 22px;
+  left: 100px; }
+
+@media (min-width: 1066px) {
+  .nav-item {
+    margin: 10px;
+    padding: 5px; }
+
+  #nav {
+    display: block;
+    position: absolute;
+    right: 0; }
+
+  #icon {
+    margin: 0; }
+
+  #bottom-nav {
+    display: none; }
+
+  form {
+    margin: 200px auto;
+    width: 20%; }
+
+  nav a:hover {
+    color: white; } }
+
+/*# sourceMappingURL=styles.css.map */
