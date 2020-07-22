@@ -26,6 +26,7 @@ A Twitter-like social network website for making text-based posts and following 
 
 ![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Profile.png?raw=true)
 
+<img src="https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Profile.png?raw=true" width="40%"height="60%">
 ## Responsive version
 
 ![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Mobile-AllPosts.png?raw=true | height=600px)
