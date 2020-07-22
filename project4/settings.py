@@ -124,7 +124,7 @@ USE_TZ = True
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = '/static/network'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
@@ -135,4 +135,4 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
     # Add to this list all the locations containing your static files 
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
