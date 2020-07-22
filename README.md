@@ -1,6 +1,6 @@
 # Social-Network
 
-A Twitter-like social network website for making text-based posts and following users.
+A Twitter-like social network for making text-based posts and following users.
 
 ### Use the website on heroku --> [Network](https://social-network-cs50.herokuapp.com)
 
