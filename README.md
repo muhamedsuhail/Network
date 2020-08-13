@@ -1,4 +1,4 @@
-# Social-Network
+# Network
 
 A Twitter-like social network website for making text-based posts and following users.
 
