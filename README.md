@@ -12,23 +12,25 @@ A Twitter-like social network website for making text-based posts and following 
 
 ## All Posts 
 
-![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/AllPosts.png?raw=true)
+![All_posts](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/AllPosts.png?raw=true)
 
 ## Posts by people you follow
 
-![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/FPosts.png?raw=true)
+![Following_posts](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/FPosts.png?raw=true)
 
 ## Creating a New Post
 
-![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/NewPost.png?raw=true)
+![New_post](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/NewPost.png?raw=true)
 
 ## Profile Page
 
-![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Profile.png?raw=true)
+![Profile_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Profile.png?raw=true)
 
 ## Responsive version
 
-![Login_page](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Mobile-Profile.png)
+![Profile_page_mobile](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/Profile-Mobile.png)
+
+![All_posts_mobile](https://github.com/muhamedsuhail/Social-Network/blob/master/Screenshots/AllPosts-Mobile.png)
 
 ## Usage:
 
